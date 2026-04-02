@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashvastree — Women's Health for Rural India</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy-deep: #080e2a;
+    --navy: #0d1640;
+    --navy-mid: #121d52;
+    --navy-light: #1a2870;
+    --navy-card: rgba(18,29,82,0.7);
+    --pink: #ff3fa4;
+    --pink-light: #ff80c7;
+    --pink-pale: rgba(255,63,164,0.15);
+    --white: #f0f4ff;
+    --muted: rgba(200,210,255,0.6);
+    --accent-cyan: #7eb8ff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy-deep);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── CIRCUIT BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,63,164,0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(126,184,255,0.07) 0%, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='4'/%3E%3Ccircle cx='40' cy='40' r='8'/%3E%3Cline x1='40' y1='32' x2='40' y2='0'/%3E%3Cline x1='40' y1='48' x2='40' y2='80'/%3E%3Cline x1='32' y1='40' x2='0' y2='40'/%3E%3Cline x1='48' y1='40' x2='80' y2='40'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section, nav, footer { position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 6vw;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(8,14,42,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,63,164,0.15);
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 0.05em;
+    color: var(--white);
+  }
+  .logo span { color: var(--pink); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--pink-light); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8rem 6vw 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,63,164,0.18) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--pink-pale);
+    border: 1px solid rgba(255,63,164,0.4);
+    border-radius: 100px;
+    padding: 0.35rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--pink-light);
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    animation: fadeUp 0.9s 0.1s ease both;
+  }
+
+  .hero h1 .pink { color: var(--pink); }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin: 1.5rem auto 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .team-tag {
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+  .team-tag strong { color: var(--pink-light); }
+
+  /* ── SECTION COMMON ── */
+  section {
+    padding: 6rem 6vw;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-body {
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 640px;
+    font-weight: 300;
+    font-size: 1.02rem;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,63,164,0.4), transparent);
+    margin: 0 6vw;
+  }
+
+  /* ── TEAM SECTION ── */
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .team-card {
+    background: var(--navy-card);
+    border: 1px solid rgba(255,63,164,0.2);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .team-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--pink);
+    box-shadow: 0 20px 50px rgba(255,63,164,0.15);
+  }
+
+  .team-card .name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    color: var(--white);
+  }
+  .team-card .role {
+    font-size: 0.78rem;
+    color: var(--pink);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .team-card .skills-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.4rem;
+  }
+  .team-card .skills-list li {
+    font-size: 0.88rem;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .team-card .skills-list li::before {
+    content: '';
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--pink);
+    flex-shrink: 0;
+  }
+
+  /* ── AIM SECTION ── */
+  .aims-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.2rem;
+    margin-top: 3rem;
+  }
+
+  .aim-card {
+    background: linear-gradient(135deg, rgba(18,29,82,0.9), rgba(13,22,64,0.9));
+    border: 1px solid rgba(126,184,255,0.2);
+    border-radius: 14px;
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .aim-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pink), var(--accent-cyan));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .aim-card:hover { transform: translateY(-4px); border-color: var(--pink); }
+  .aim-card:hover::before { opacity: 1; }
+
+  .aim-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+  .aim-card p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+  }
+
+  /* ── STAT HIGHLIGHT ── */
+  .stat-block {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    background: linear-gradient(135deg, var(--navy-card), rgba(255,63,164,0.08));
+    border: 1px solid rgba(255,63,164,0.25);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .stat-circle {
+    flex-shrink: 0;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: conic-gradient(var(--pink) 0% 84%, rgba(255,255,255,0.08) 84% 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .stat-circle::after {
+    content: '';
+    position: absolute;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: var(--navy-deep);
+  }
+  .stat-inner {
+    position: relative; z-index: 1;
+    text-align: center;
+  }
+  .stat-inner .num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--pink);
+    line-height: 1;
+  }
+  .stat-inner .label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  .stat-text h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .stat-points { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .stat-points li {
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    font-size: 0.92rem; color: var(--muted); line-height: 1.5;
+  }
+  .stat-points li span.dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--pink); flex-shrink: 0; margin-top: 0.4rem;
+  }
+
+  /* ── SOLUTION ── */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .solution-pillars { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .pillar {
+    display: flex; gap: 1.2rem;
+    background: var(--navy-card);
+    border: 1px solid rgba(126,184,255,0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+  }
+  .pillar:hover { border-color: var(--pink); }
+  .pillar-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--pink);
+    opacity: 0.4;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2.5rem;
+  }
+  .pillar h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+  .pillar p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* FLOW DIAGRAM */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-step {
+    background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
+    border: 1px solid rgba(255,63,164,0.25);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--white);
+    position: relative;
+  }
+  .flow-step .step-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 0.3rem;
+  }
+  .flow-arrow {
+    height: 30px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--pink);
+    font-size: 1.2rem;
+  }
+
+  /* ── ARCHITECTURE & RAG ── */
+  .arch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .arch-card {
+    background: var(--navy-card);
+    border: 1px solid rgba(126,184,255,0.18);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    transition: all 0.3s;
+  }
+  .arch-card:hover { border-color: var(--pink); transform: translateY(-4px); }
+  .arch-card .arch-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--pink-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .arch-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .arch-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .arch-card .tech-tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    background: rgba(255,63,164,0.15);
+    border: 1px solid rgba(255,63,164,0.3);
+    border-radius: 100px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.72rem;
+    color: var(--pink-light);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RAG WORKFLOW ── */
+  .rag-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+  .rag-flow::before {
+    content: '';
+    position: absolute;
+    top: 3rem; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--pink), var(--accent-cyan), var(--pink));
+    opacity: 0.3;
+  }
+
+  .rag-step {
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center; padding: 0 1rem;
+    position: relative;
+  }
+  .rag-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--pink), #9b59f7);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    position: relative; z-index: 1;
+    box-shadow: 0 0 20px rgba(255,63,164,0.4);
+  }
+  .rag-step h5 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+  .rag-step p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+  /* ── LLM SECTION ── */
+  .llm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .llm-reasons { display: flex; flex-direction: column; gap: 1rem; }
+  .llm-reason {
+    display: flex; align-items: flex-start; gap: 1rem;
+    background: var(--navy-card);
+    border-left: 3px solid var(--pink);
+    border-radius: 0 12px 12px 0;
+    padding: 1.2rem 1.5rem;
+  }
+  .llm-reason .r-icon { font-size: 1.4rem; flex-shrink: 0; }
+  .llm-reason h5 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 0.95rem; margin-bottom: 0.2rem;
+  }
+  .llm-reason p { font-size: 0.83rem; color: var(--muted); line-height: 1.5; }
+
+  .llm-highlight {
+    background: linear-gradient(135deg, rgba(255,63,164,0.12), rgba(126,184,255,0.08));
+    border: 1px solid rgba(255,63,164,0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .llm-highlight .big-text {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--pink);
+    margin-bottom: 0.5rem;
+  }
+  .llm-highlight p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+  /* ── PROMPT CODE ── */
+  .prompt-block {
+    background: #050b1a;
+    border: 1px solid rgba(255,63,164,0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: #a8c7fa;
+    position: relative;
+    overflow: hidden;
+  }
+  .prompt-block::before {
+    content: 'SYSTEM PROMPT';
+    position: absolute; top: 1rem; right: 1.5rem;
+    font-size: 0.68rem; letter-spacing: 0.15em;
+    color: var(--pink); opacity: 0.7; font-family: 'DM Sans', sans-serif;
+  }
+  .prompt-block .p-comment { color: rgba(255,63,164,0.7); }
+  .prompt-block .p-key { color: var(--pink-light); }
+
+  /* ── UX SECTION ── */
+  .ux-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .ux-card {
+    background: linear-gradient(160deg, rgba(26,40,112,0.8), rgba(13,22,64,0.9));
+    border: 1px solid rgba(126,184,255,0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+  .ux-card:hover { transform: translateY(-4px); border-color: var(--accent-cyan); }
+  .ux-card .ux-icon {
+    font-size: 2.5rem; margin-bottom: 1rem;
+    display: block;
+  }
+  .ux-card h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 1rem; margin-bottom: 0.6rem;
+    color: var(--accent-cyan);
+  }
+  .ux-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── FUTURE ── */
+  .future-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .future-col {
+    background: var(--navy-card);
+    border-radius: 16px;
+    border: 1px solid rgba(255,63,164,0.15);
+    padding: 2rem;
+    transition: all 0.3s;
+  }
+  .future-col:hover { border-color: var(--pink); }
+  .future-col .f-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700; font-size: 1rem;
+    margin-bottom: 1.2rem; color: var(--pink-light);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .future-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .future-col li {
+    display: flex; align-items: flex-start; gap: 0.6rem;
+    font-size: 0.87rem; color: var(--muted); line-height: 1.5;
+  }
+  .future-col li::before { content: '→'; color: var(--pink); flex-shrink: 0; }
+
+  .future-banner {
+    background: linear-gradient(135deg, rgba(255,63,164,0.15), rgba(126,184,255,0.1));
+    border: 1px solid rgba(255,63,164,0.3);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .future-banner h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .future-banner p { color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.8; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 3rem 6vw;
+    border-top: 1px solid rgba(255,63,164,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer .logo { font-size: 1.2rem; }
+  footer p { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .solution-grid, .llm-grid { grid-template-columns: 1fr; }
+    .rag-flow { grid-template-columns: 1fr; }
+    .rag-flow::before { display: none; }
+    .stat-block { flex-direction: column; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ASH<span>VA</span>STREE</div>
+  <ul class="nav-links">
+    <li><a href="#aim">Our Aim</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#future">Future</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-badge">🌸 AI Ideathon — Team JDG</div>
+  <h1>ASH<span class="pink">VA</span><br>STREE</h1>
+  <p class="hero-sub">Bridging the healthcare gap for women across India through AI-powered, multilingual, stigma-free guidance.</p>
+  <p class="team-tag">Presented by <strong>Gaurika Rakhesh R. · Julia Mariam Jacob · Devika Manikantan</strong></p>
+</section>
+
+<div class="divider"></div>
+
+<!-- TEAM -->
+<section id="team">
+  <p class="section-label reveal">The Team</p>
+  <h2 class="section-title reveal">Meet Team JDG</h2>
+  <div class="team-grid">
+    <div class="team-card reveal">
+      <div class="name">Gaurika Rakhesh R.</div>
+      <div class="role">Team Leader</div>
+      <ul class="skills-list">
+        <li>AI/ML Foundations (IBM Cognitive AI)</li>
+        <li>Deep Learning Coursework</li>
+        <li>Python & C-based Development</li>
+      </ul>
+    </div>
+    <div class="team-card reveal">
+      <div class="name">Julia Mariam Jacob</div>
+      <div class="role">Developer</div>
+      <ul class="skills-list">
+        <li>Programming: Python, C</li>
+        <li>Database Management: SQL</li>
+      </ul>
+    </div>
+    <div class="team-card reveal">
+      <div class="name">Devika Manikantan</div>
+      <div class="role">Developer</div>
+      <ul class="skills-list">
+        <li>Programming: Python, C</li>
+        <li>Database Management: SQL</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AIM -->
+<section id="aim">
+  <p class="section-label reveal">Our Mission</p>
+  <h2 class="section-title reveal">What We Aim to Solve</h2>
+  <p class="section-body reveal">Five interconnected goals that together form a complete, equitable women's healthcare ecosystem for rural India.</p>
+  <div class="aims-grid">
+    <div class="aim-card reveal">
+      <div class="aim-icon">🏥</div>
+      <p>Improve Rural Healthcare Accessibility</p>
+    </div>
+    <div class="aim-card reveal">
+      <div class="aim-icon">🔬</div>
+      <p>Enable Early Health Risk Detection</p>
+    </div>
+    <div class="aim-card reveal">
+      <div class="aim-icon">⚡</div>
+      <p>Reduce Emergency Response Delays</p>
+    </div>
+    <div class="aim-card reveal">
+      <div class="aim-icon">💰</div>
+      <p>Increase Access to Financial Support</p>
+    </div>
+    <div class="aim-card reveal">
+      <div class="aim-icon">🌸</div>
+      <p>Deliver Personalized Women-Centric Care</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <p class="section-label reveal">The Problem</p>
+  <h2 class="section-title reveal">A Broken System,<br>A Silent Crisis</h2>
+  <div class="stat-block reveal">
+    <div class="stat-circle">
+      <div class="stat-inner">
+        <div class="num">84%</div>
+        <div class="label">face at least<br>one barrier</div>
+      </div>
+    </div>
+    <div class="stat-text">
+      <h3>NFHS-5 Data: 108,785 Women (Ages 15–49)</h3>
+      <ul class="stat-points">
+        <li><span class="dot"></span> ~65% of India's women reside in rural areas — and their health remains deeply neglected.</li>
+        <li><span class="dot"></span> Over half face facility and logistic barriers, reflecting systemic gaps in care.</li>
+        <li><span class="dot"></span> Social taboos around PCOS, pregnancy, and menopause further limit awareness.</li>
+        <li><span class="dot"></span> Current digital health apps ignore local dialects, have low-literacy interfaces, and complex bureaucratic processes for BPL beneficiaries.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLUTION -->
+<section id="solution">
+  <p class="section-label reveal">Our Solution</p>
+  <h2 class="section-title reveal">Safe. Multilingual.<br>Stigma-Free.</h2>
+  <p class="section-body reveal">"An AI-powered, multilingual women's health assistant that delivers safe, accessible, and stigma-free healthcare guidance for rural India."</p>
+  <div class="solution-grid">
+    <div class="solution-pillars">
+      <div class="pillar reveal">
+        <div class="pillar-num">01</div>
+        <div>
+          <h4>Safe & Responsible AI</h4>
+          <p>No medical diagnosis. Doctor escalation for serious symptoms. Harm-prevention built in at every layer.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">02</div>
+        <div>
+          <h4>Multilingual Accessibility</h4>
+          <p>Supports all 22 Indian languages via IndicTrans2 by AI4Bharat. Simple, easy-to-understand responses in the user's native tongue.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-num">03</div>
+        <div>
+          <h4>Verified Information (RAG)</h4>
+          <p>Retrieves trusted health data before generating answers. Actively reduces hallucinations and misinformation.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flow reveal">
+      <div class="flow-step">
+        <div class="step-label">Input</div>
+        User speaks or types in any Indian language
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="step-label">AI Processing</div>
+        RAG · Llama 3 · Prompt Engineering<br>Retrieve → Reason → Safeguard
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-step">
+        <div class="step-label">Output</div>
+        Safe, localized health guidance delivered in the user's native language
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LLM LAYER -->
+<section id="llm">
+  <p class="section-label reveal">Technology</p>
+  <h2 class="section-title reveal">Why Llama (Meta)?</h2>
+  <div class="llm-grid">
+    <div class="llm-reasons">
+      <div class="llm-reason reveal">
+        <div class="r-icon">🔓</div>
+        <div><h5>Open Source</h5><p>Fully auditable and customizable — no black boxes in healthcare.</p></div>
+      </div>
+      <div class="llm-reason reveal">
+        <div class="r-icon">💸</div>
+        <div><h5>Cost Efficient</h5><p>No per-query cost — making it genuinely scalable for millions of rural users.</p></div>
+      </div>
+      <div class="llm-reason reveal">
+        <div class="r-icon">🔒</div>
+        <div><h5>Privacy Focused</h5><p>Data remains on our own servers — critical for sensitive health information.</p></div>
+      </div>
+      <div class="llm-reason reveal">
+        <div class="r-icon">🛠️</div>
+        <div><h5>Customizable</h5><p>Can be fine-tuned on women's healthcare data for domain-specific accuracy.</p></div>
+      </div>
+      <div class="llm-reason reveal">
+        <div class="r-icon">🌐</div>
+        <div><h5>Language Support</h5><p>Integrated with IndicTrans2 for seamless Indian language processing.</p></div>
+      </div>
+    </div>
+    <div class="llm-highlight reveal">
+      <div class="big-text">Llama 3</div>
+      <p style="color:var(--pink-light); margin-bottom:1rem; font-family:'Syne',sans-serif; font-weight:700;">via Groq</p>
+      <p>Chosen to ensure <strong style="color:var(--white)">scalability, privacy, and accessibility</strong> for rural India — where proprietary API costs would make the service unsustainable at scale.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROMPT ENGINEERING -->
+<section id="prompt">
+  <p class="section-label reveal">Prompt Engineering</p>
+  <h2 class="section-title reveal">Programming the Personality</h2>
+  <p class="section-body reveal">The system prompt shapes every interaction — ensuring safe responses, adapting to rural users' needs, and preventing misuse in a sensitive healthcare context.</p>
+  <div class="prompt-block reveal">
+<span class="p-comment"># Ashvastree System Prompt (simplified)</span>
+
+<span class="p-key">You are Ashvastree</span>, a compassionate women's health
+assistant serving rural Indian women.
+
+- Use <span class="p-key">simple, clear language</span>
+- Do <span class="p-key">not</span> provide medical diagnoses
+- If symptoms seem serious, <span class="p-key">advise visiting a doctor</span>
+- Be <span class="p-key">sensitive</span> when discussing pregnancy, PCOS, menopause
+- Provide <span class="p-key">safe, general health guidance only</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RAG WORKFLOW -->
+<section id="rag">
+  <p class="section-label reveal">RAG Pipeline</p>
+  <h2 class="section-title reveal">How the AI Retrieves Before It Answers</h2>
+  <p class="section-body reveal">RAG separates Ashvastree from a generic chatbot — it actually knows domain-specific women's health information, grounded in verified sources.</p>
+  <div class="rag-flow reveal">
+    <div class="rag-step">
+      <div class="rag-num">1</div>
+      <h5>User Query</h5>
+      <p>User sends a message in any Indian language (e.g. "PCOS symptoms?")</p>
+    </div>
+    <div class="rag-step">
+      <div class="rag-num">2</div>
+      <h5>Translation</h5>
+      <p>IndicTrans2 translates to English — 22 Indian languages supported</p>
+    </div>
+    <div class="rag-step">
+      <div class="rag-num">3</div>
+      <h5>Embedding</h5>
+      <p>Query converted to vector embeddings (text → numbers encoding meaning)</p>
+    </div>
+    <div class="rag-step">
+      <div class="rag-num">4</div>
+      <h5>Similarity Search</h5>
+      <p>Supabase finds top 3–5 closest matching verified health documents</p>
+    </div>
+    <div class="rag-step">
+      <div class="rag-num">5</div>
+      <h5>Generation</h5>
+      <p>Llama 3 generates a grounded, safe answer using retrieved context</p>
+    </div>
+    <div class="rag-step">
+      <div class="rag-num">6</div>
+      <h5>Response</h5>
+      <p>IndicTrans2 translates back — user receives safe answer in native language</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ARCHITECTURE -->
+<section id="architecture">
+  <p class="section-label reveal">System Design</p>
+  <h2 class="section-title reveal">Hub-and-Spoke Architecture</h2>
+  <p class="section-body reveal">A central Orchestration Layer manages data flow between the user and complex medical services — modular, secure, and scalable.</p>
+  <div class="arch-grid">
+    <div class="arch-card reveal">
+      <div class="arch-icon">⚙️</div>
+      <h4>Microservices Orchestration</h4>
+      <p>Central engine coordinates the Multilingual Translation Engine, Diagnostic AI, and Government Health Databases.</p>
+      <span class="tech-tag">Node.js</span>
+    </div>
+    <div class="arch-card reveal">
+      <div class="arch-icon">🔗</div>
+      <h4>REST API Integration</h4>
+      <p>Secure connections to the National Health Stack and BPL Verification systems for real-time data exchange.</p>
+      <span class="tech-tag">Gemini API</span>
+    </div>
+    <div class="arch-card reveal">
+      <div class="arch-icon">🗄️</div>
+      <h4>Data Vaulting</h4>
+      <p>Encrypted patient history storage that simplifies documentation literacy by automating record-keeping.</p>
+      <span class="tech-tag">Supabase</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- UX -->
+<section id="ux">
+  <p class="section-label reveal">Design Philosophy</p>
+  <h2 class="section-title reveal">Voice-First.<br>Visual-First.</h2>
+  <p class="section-body reveal">Shifting away from text-heavy interfaces toward experiences that work for low-literacy users — built in Flutter.</p>
+  <div class="ux-cards">
+    <div class="ux-card reveal">
+      <span class="ux-icon">🎙️</span>
+      <h4>Multilingual Voice UI</h4>
+      <p>Natural Language Understanding in local dialects — women can describe symptoms naturally in their own words.</p>
+    </div>
+    <div class="ux-card reveal">
+      <span class="ux-icon">👆</span>
+      <h4>The One-Action Rule</h4>
+      <p>Any primary task — booking a consult, checking a BPL benefit — is never more than two taps away.</p>
+    </div>
+    <div class="ux-card reveal">
+      <span class="ux-icon">🔐</span>
+      <h4>Privacy-Centric UX</h4>
+      <p>Privacy Modes and discreet visual cues help users navigate sensitive health topics without social stigma.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FUTURE -->
+<section id="future">
+  <p class="section-label reveal">Looking Ahead</p>
+  <h2 class="section-title reveal">This Is Just the Start</h2>
+  <div class="future-cols">
+    <div class="future-col reveal">
+      <div class="f-title">🤖 AI Companion</div>
+      <ul>
+        <li>AI that tracks health patterns over time</li>
+        <li>Personalized advice based on longitudinal data</li>
+        <li>Acts like a continuous health companion</li>
+      </ul>
+    </div>
+    <div class="future-col reveal">
+      <div class="f-title">🌐 Reach & Access</div>
+      <ul>
+        <li>Voice-based interaction in local languages</li>
+        <li>Offline / low-internet functionality</li>
+        <li>Direct connection to doctors and hospitals</li>
+      </ul>
+    </div>
+    <div class="future-col reveal">
+      <div class="f-title">📊 Systems Impact</div>
+      <ul>
+        <li>Integration with government health schemes</li>
+        <li>Mental health and emotional support features</li>
+        <li>Data-driven insights to improve public health policy</li>
+      </ul>
+    </div>
+  </div>
+  <div class="future-banner reveal">
+    <h3>A Long-Term Vision to Transform<br>Rural Healthcare for Women</h3>
+    <p>By combining AI with accessibility and trust, Ashvastree has the potential to grow into a complete support system that not only guides but actively connects, understands, and empowers users — making healthcare more personal, reachable, and impactful at scale.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">ASH<span>VA</span>STREE</div>
+  <p>Team JDG · Gaurika · Julia · Devika</p>
+  <p style="color:var(--pink); font-size:0.8rem;">Bridging the healthcare gap for women across India 🌸</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // stagger siblings
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, idx * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
